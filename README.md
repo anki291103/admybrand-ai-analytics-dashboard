@@ -1,6 +1,6 @@
 🚀 AI-Powered Analytics Dashboard (ADmyBRAND Insights)
+✨ Live Demo: https://admybrand-ai-analytics-dashboard-ri6w-f06hel6io.vercel.app/
 
-✨ Live Demo: https://ai-analytics-dashboard-iz2u.vercel.app/
 
 📁 Repository: (add your GitHub repo link)
 
@@ -63,6 +63,9 @@ Users can interact with the dashboard using plain English:
 “Any anomalies?”
 “Users in electronics”
 “Top performing category”
+
+you can see these on the link 
+https://ai-analytics-dashboard-iz2u.vercel.app/
 
 
 The system:
