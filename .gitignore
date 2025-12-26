@@ -23,6 +23,13 @@
 # misc
 .DS_Store
 *.pem
+node_modules
+.next
+.env
+.env.local
+.vercel
+dist
+coverage
 
 # debug
 npm-debug.log*
