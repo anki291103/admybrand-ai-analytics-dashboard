@@ -1,5 +1,6 @@
 // src/utils/dataGenerators.ts
-import {type SalesDataItem } from '../data/dashboardData';
+"use client";
+import {type SalesDataItem } from "@/lib/data/dashboardData";;
 
 /**
  * Generates a new SalesDataItem for a given date, simulating growth and randomness.

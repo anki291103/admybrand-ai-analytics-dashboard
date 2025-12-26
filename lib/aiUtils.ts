@@ -1,6 +1,6 @@
 // src/utils/aiUtils.ts
-
-import { type SalesDataItem } from '../data/dashboardData';
+"use client";
+import { type SalesDataItem } from "@/lib/data/dashboardData";;
 
 interface PredictionDataPoint {
   date: string;
