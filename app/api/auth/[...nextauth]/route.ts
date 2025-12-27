@@ -7,9 +7,8 @@ export const authOptions: NextAuthOptions = {
       name: "Credentials",
 
       credentials: {
-        email: { label: "Email", type: "text" },
+        email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
-        viewerUsers: { label: "Viewer Users", type: "text" },
       },
 
       async authorize(credentials) {
@@ -17,9 +16,9 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        /* 🔑 ADMIN */
+        /* 🔑 ADMIN ACCOUNT */
         if (
-          credentials.email === "admin@admybrand.com" &&
+          credentials.email === "admin@demo.com" &&
           credentials.password === "admin123"
         ) {
           return {
@@ -30,28 +29,17 @@ export const authOptions: NextAuthOptions = {
           };
         }
 
-        /* 👤 VIEWER (Signup users) */
-        if (credentials.viewerUsers) {
-          try {
-            const users = JSON.parse(credentials.viewerUsers);
-
-            const match = users.find(
-              (u: any) =>
-                u.email === credentials.email &&
-                u.password === credentials.password
-            );
-
-            if (match) {
-              return {
-                id: match.email,
-                name: match.name,
-                email: match.email,
-                role: "viewer",
-              };
-            }
-          } catch (e) {
-            console.error("Viewer users parse error", e);
-          }
+        /* 👤 VIEWER ACCOUNT */
+        if (
+          credentials.email === "viewer@demo.com" &&
+          credentials.password === "viewer123"
+        ) {
+          return {
+            id: "viewer-1",
+            name: "Viewer User",
+            email: credentials.email,
+            role: "viewer",
+          };
         }
 
         return null;
@@ -71,7 +59,7 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       if (session.user) {
         session.user.role = token.role as "admin" | "viewer";
-        session.user.name = token.name;
+        session.user.name = token.name as string;
       }
       return session;
     },
