@@ -16,9 +16,10 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
 
-        /* 🔑 ADMIN ACCOUNT */
+        /* 🔑 ADMIN ACCOUNTS */
         if (
-          credentials.email === "admin@demo.com" &&
+          (credentials.email === "admin@admybrand.com" ||
+            credentials.email === "admin@demo.com") &&
           credentials.password === "admin123"
         ) {
           return {
@@ -29,7 +30,7 @@ export const authOptions: NextAuthOptions = {
           };
         }
 
-        /* 👤 VIEWER ACCOUNT */
+        /* 👤 VIEWER ACCOUNT (Demo) */
         if (
           credentials.email === "viewer@demo.com" &&
           credentials.password === "viewer123"
@@ -77,5 +78,4 @@ export const authOptions: NextAuthOptions = {
 };
 
 const handler = NextAuth(authOptions);
-
 export { handler as GET, handler as POST };
